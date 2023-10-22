@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://eghu2mvvc3ai"]
+
+[ext_resource type="Script" path="res://scene/object/human/1/1_male.gd" id="1_keood"]
+[ext_resource type="Texture2D" uid="uid://dxibbcqwhnsxr" path="res://scene/object/human/image/1_male.png" id="1_s4k32"]
+
+[node name="1_male" type="RigidBody2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_keood")
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-46, 16, -58, 41, -49, 95, -75, 109, -76, 90, -97, 100, -94, 131, -42, 125, -26, 138, 0, 133, 26, 139, 44, 127, 94, 132, 99, 102, 77, 89, 77, 107, 53, 93, 59, 38, 47, 16, 65, 1, 71, -15, 93, -21, 94, -47, 73, -50, 67, -91, 40, -118, 32, -131, 0, -140, -36, -129, -40, -117, -65, -88, -70, -51, -90, -49, -90, -23, -69, -17, -63, 3)
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_s4k32")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv7bfxmaulgfp"]
+
+[ext_resource type="Script" path="res://scene/object/human/3/3_male.gd" id="1_8oibg"]
+[ext_resource type="Texture2D" uid="uid://c2u2l5tsrdejb" path="res://scene/object/human/image/3_male.png" id="2_2oi4r"]
+
+[node name="3_male" type="RigidBody2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_8oibg")
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-53.3333, -6.66667, -60, 0, -76.6667, 10, -100, 46.6667, -86.6667, 70, -66.6667, 73.3333, -56.6667, 83.3333, -56.6667, 120, -123.333, 160, -146.667, 156.667, -123.333, 180, -3.33333, 156.667, 56.6667, 180, 113.333, 173.333, 133.333, 183.333, 116.667, 156.667, 70, 153.333, 63.3333, 123.333, 60, 106.667, 96.6667, 110, 110, 96.6667, 113.333, 20, 100, 0, 73.3333, -10, 76.6667, -20, 93.3333, -16.6667, 103.333, -26.6667, 103.333, -43.3333, 96.6667, -50, 100, -93.3333, 113.333, -90, 100, -103.333, 86.6667, -150, 43.3333, -183.333, 3.33333, -186.667, -40, -173.333, -63.3333, -123.333, -83.3333, -113.333, -70, -110, -70, -83.3333, -73.3333, -53.3333, -66.6667, -23.3333)
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_2oi4r")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj5xa5w55ryhg"]
+
+[ext_resource type="PackedScene" uid="uid://ceudqeq6l5kjk" path="res://scene/object/box/box.tscn" id="1_5nhs3"]
+[ext_resource type="Script" path="res://scene/main_game/humans_in_box.gd" id="2_7kyeb"]
+[ext_resource type="PackedScene" uid="uid://dj5osfevtcfuk" path="res://scene/object/human/0/0.tscn" id="2_haeoo"]
+[ext_resource type="PackedScene" uid="uid://eghu2mvvc3ai" path="res://scene/object/human/1/1_male.tscn" id="3_3hmtv"]
+[ext_resource type="PackedScene" uid="uid://04alroxd31gt" path="res://scene/object/human/1/1_female.tscn" id="5_sota2"]
+[ext_resource type="PackedScene" uid="uid://bs4qvcnx1iyte" path="res://scene/object/human/2/2_male.tscn" id="6_7wv8w"]
+
+[node name="main_game" type="Node2D"]
+
+[node name="box" parent="." instance=ExtResource("1_5nhs3")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="humans_in_box" type="Node2D" parent="."]
+script = ExtResource("2_7kyeb")
+
+[node name="0" parent="humans_in_box" instance=ExtResource("2_haeoo")]
+position = Vector2(-109, 157)
+
+[node name="0_2" parent="humans_in_box" instance=ExtResource("2_haeoo")]
+position = Vector2(-35, 44)
+
+[node name="1_male" parent="humans_in_box" instance=ExtResource("3_3hmtv")]
+position = Vector2(1, 107)
+
+[node name="1_female" parent="." instance=ExtResource("5_sota2")]
+position = Vector2(-110, -205)
+
+[node name="2_male" parent="." instance=ExtResource("6_7wv8w")]
+position = Vector2(-199, 133)
+
+[connection signal="collision_between_human" from="humans_in_box/0" to="humans_in_box" method="_on_collision_between_human"]
+[connection signal="collision_between_human" from="humans_in_box/0_2" to="humans_in_box" method="_on_collision_between_human"]
+[connection signal="collision_between_human" from="humans_in_box/1_male" to="humans_in_box" method="_on_collision_between_human"]
