@@ -28,9 +28,6 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
-	if is_human(body):
+	if body is Human:
 		if self.get_index() < body.get_index():
 			emit_signal('collision_between_human', self, body)
-
-func is_human(body):
-	return body.get_class() == 'RigidBody2D'

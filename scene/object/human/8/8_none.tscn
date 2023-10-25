@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c82ewfgforqh7"]
+
+[ext_resource type="Script" path="res://scene/object/human/8/8_none.gd" id="1_5t15t"]
+[ext_resource type="Texture2D" uid="uid://cc6u6fg4okqwi" path="res://scene/object/human/image/8.png" id="2_m5m1c"]
+
+[node name="8_none" type="RigidBody2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_5t15t")
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-57.1429, -190, -57.1429, 0, -70, 0, -70, 27.1429, -84.2857, 27.1429, -81.4286, 40, -90, 40, -90, 47.1429, -111.429, 47.1429, -110, 127.143, -147.143, 127.143, -147.143, 181.429, 151.429, 181.429, 151.429, 127.143, 115.714, 127.143, 115.714, 48.5714, 95.7143, 48.5714, 95.7143, 40, 87.1429, 40, 88.5714, 27.1429, 74.2857, 27.1428, 74.2857, 0, 61.4286, 0, 61.4286, -190)
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_m5m1c")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccbd2jdj0mfk5"]
+
+[ext_resource type="Texture2D" uid="uid://b0tvld2featvr" path="res://scene/object/god/image/god.png" id="1_d2if3"]
+[ext_resource type="Script" path="res://scene/object/god/god.gd" id="1_ulh6g"]
+
+[node name="god" type="Node2D"]
+script = ExtResource("1_ulh6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_d2if3")

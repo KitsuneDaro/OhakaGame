@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj5osfevtcfuk"]
 
-[ext_resource type="Script" path="res://scene/object/human/0/0.gd" id="1_l4a03"]
-[ext_resource type="Texture2D" uid="uid://q7adyu418hqh" path="res://scene/object/human/image/0.png" id="2_yrgr1"]
+[ext_resource type="Script" path="res://scene/object/human/0/0_none.gd" id="1_bmnwk"]
+[ext_resource type="Texture2D" uid="uid://q7adyu418hqh" path="res://scene/object/human/image/0.png" id="2_pi8hr"]
 
-[node name="0_human" type="RigidBody2D"]
+[node name="0_none" type="RigidBody2D"]
 scale = Vector2(0.125, 0.125)
-script = ExtResource("1_l4a03")
+script = ExtResource("1_bmnwk")
 
 [node name="collision" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-173, 13, -171, 74, -143, 136, -83, 177, -7, 180, 73, 160, 127, 114, 158, 51, 169, -29, 158, -99, 119, -149, 51, -178, 1, -183, -55, -167, -110, -131, -146, -86, -164, -34)
 
 [node name="sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_yrgr1")
+texture = ExtResource("2_pi8hr")
