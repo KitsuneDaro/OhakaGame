@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scene/object/human/0/0.gd" id="1_l4a03"]
 [ext_resource type="Texture2D" uid="uid://q7adyu418hqh" path="res://scene/object/human/image/0.png" id="2_yrgr1"]
 
-[node name="human_0" type="RigidBody2D"]
+[node name="0_human" type="RigidBody2D"]
 scale = Vector2(0.125, 0.125)
 script = ExtResource("1_l4a03")
 

@@ -21,7 +21,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func connect_signal_of_human(body: human):
+func connect_signal_of_human(body: Human):
 	body.collision_between_human.connect(_on_collision_between_human)
 
 
@@ -30,7 +30,27 @@ func _process(delta):
 	pass
 
 
-func _on_collision_between_human(body1: human, body2: human):
+func is_correct_human(life_stage: int, gender: String) -> bool:
+	if life_stage < len(human_scenes):
+		if human_scenes[life_stage].has(gender):
+			return true
+	
+	return false
+
+
+func create_human(life_stage: int, gender: String):
+	if not is_correct_human(life_stage, gender):
+		return null
+	
+	var new_human = human_scenes[life_stage][gender].instantiate()
+	
+	# シグナルの接続
+	connect_signal_of_human(new_human)
+	
+	return new_human
+
+
+func _on_collision_between_human(body1: Human, body2: Human):
 	if body1.life_stage == body2.life_stage:
 		# ボディの追加
 		var next_life_stage: int = body1.life_stage + 1
@@ -40,13 +60,9 @@ func _on_collision_between_human(body1: human, body2: human):
 		var next_human_gender: String = ''
 		next_human_gender = next_human_genders[randi_range(0, len(next_human_genders) - 1)]
 		
-		var next_human: human = next_humans[next_human_gender].instantiate()
+		var next_human: Human = create_human(next_life_stage, next_human_gender)
 		next_human.position = (body2.position + body1.position) / 2
 		next_human.rotate((body2.position - body1.position).angle() + PI / 2)
-		
-		# シグナルの接続
-		next_human.connect_signal()
-		connect_signal_of_human(next_human)
 		
 		add_child(next_human)
 		

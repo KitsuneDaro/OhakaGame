@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-class_name human
+class_name Human
 signal collision_between_human
 
 # Called when the node enters the scene tree for the first time.
