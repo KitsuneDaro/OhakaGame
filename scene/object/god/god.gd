@@ -1,17 +1,21 @@
 extends Node2D
 
 # move
-var move_able_width = 400
-var move_speed = 400
+const moving_able_width = 400
+const moving_speed = 400
 var velocity = Vector2(0, 0)
 
 # rotate
-var rotate_able_radians: float = PI / 2
-var rotate_first_speed_radians: float = PI * 2 / 3 # 戻るスピード
-var rotate_reset_rate: float = 4.0 # 戻るスピード
-var rotate_decay_rate: float = 0.95 # 減衰率
-var rotate_eps_radians: float = 0.005
-var rotate_velocity_radians: float = 0
+const rotating_able_radians: float = PI / 2
+const rotating_first_speed_radians: float = PI * 2 / 3 # 戻るスピード
+const rotating_reset_rate: float = 4.0 # 戻るスピード
+const rotating_decay_rate: float = 0.95 # 減衰率
+const rotating_eps_radians: float = 0.005
+var rotating_velocity_radians: float = 0
+
+# human
+var having_human: Human = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,42 +25,53 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
 	move_holizon(delta)
-	rotate_by_move(delta)
+	rotate_by_motion(delta)
 	limit_position()
-	limit_rotate()
-	
-	pass
+	limit_rotation()
 
 
-func rotate_by_move(delta: float):
+func create_having_human():
+	have_human(Human.create_human())
+
+
+func have_human(human: Human):
+	having_human = human
+	move_having_human()
+
+
+func move_having_human():
+	having_human.position = position
+
+
+func rotate_by_motion(delta: float):
 	if Input.is_action_just_pressed("ui_left"):
-		rotate_velocity_radians = -rotate_first_speed_radians
+		rotating_velocity_radians = -rotating_first_speed_radians
 	elif Input.is_action_just_pressed("ui_right"):
-		rotate_velocity_radians = rotate_first_speed_radians
+		rotating_velocity_radians = rotating_first_speed_radians
 	elif (Input.is_action_pressed("ui_left")
 		or Input.is_action_pressed("ui_right")):
-		if rotation * rotate_velocity_radians > 0:
-			rotate_velocity_radians = rotate_velocity_radians * rotate_decay_rate
+		if rotation * rotating_velocity_radians > 0:
+			rotating_velocity_radians = rotating_velocity_radians * rotating_decay_rate
 	elif rotation != 0:
-		rotate_velocity_radians = -rotation * rotate_reset_rate
+		rotating_velocity_radians = -rotation * rotating_reset_rate
 	
-	rotation += rotate_velocity_radians * delta
+	rotation += rotating_velocity_radians * delta
 
 
-func limit_rotate():
-	if rotation > rotate_able_radians / 2:
-		rotation = rotate_able_radians / 2
-	elif rotation < -rotate_able_radians / 2:
-		rotation = -rotate_able_radians / 2
-	if abs(rotation) < rotate_eps_radians:
+func limit_rotation():
+	if rotation > rotating_able_radians / 2:
+		rotation = rotating_able_radians / 2
+	elif rotation < -rotating_able_radians / 2:
+		rotation = -rotating_able_radians / 2
+	if abs(rotation) < rotating_eps_radians:
 		rotation = 0
 
 
 func move_holizon(delta: float):
 	if Input.is_action_pressed("ui_left"):
-		velocity.x = -move_speed
+		velocity.x = -moving_speed
 	elif Input.is_action_pressed("ui_right"):
-		velocity.x = move_speed
+		velocity.x = moving_speed
 	else:
 		velocity.x = 0
 	
@@ -64,7 +79,7 @@ func move_holizon(delta: float):
 
 
 func limit_position():
-	if position.x > move_able_width / 2:
-		position.x = move_able_width / 2
-	elif position.x < -move_able_width / 2:
-		position.x = -move_able_width / 2
+	if position.x > moving_able_width / 2:
+		position.x = moving_able_width / 2
+	elif position.x < -moving_able_width / 2:
+		position.x = -moving_able_width / 2
