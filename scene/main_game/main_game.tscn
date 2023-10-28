@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj5xa5w55ryhg"]
+[gd_scene load_steps=5 format=3 uid="uid://cj5xa5w55ryhg"]
 
 [ext_resource type="PackedScene" uid="uid://ceudqeq6l5kjk" path="res://scene/object/box/box.tscn" id="1_5nhs3"]
+[ext_resource type="Script" path="res://scene/main_game/main_game.gd" id="1_od27i"]
 [ext_resource type="PackedScene" uid="uid://c6sjg3x4mchvq" path="res://scene/object/merge_area/merge_area.tscn" id="1_ube7j"]
-[ext_resource type="PackedScene" uid="uid://ccbd2jdj0mfk5" path="res://scene/object/god/god.tscn" id="3_j5hye"]
+[ext_resource type="PackedScene" uid="uid://d0dujruk7pd56" path="res://scene/object/start_count/start_count.tscn" id="4_w4yjl"]
 
 [node name="main_game" type="Node2D"]
-
-[node name="god" parent="." instance=ExtResource("3_j5hye")]
-position = Vector2(0, -212)
+script = ExtResource("1_od27i")
 
 [node name="merge_area" parent="." instance=ExtResource("1_ube7j")]
 position = Vector2(0, 96)
@@ -15,4 +14,6 @@ position = Vector2(0, 96)
 [node name="box" parent="." instance=ExtResource("1_5nhs3")]
 position = Vector2(0, 96)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="start_count" parent="." instance=ExtResource("4_w4yjl")]
+
+[node name="camera" type="Camera2D" parent="."]

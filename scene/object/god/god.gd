@@ -1,9 +1,9 @@
 extends Node2D
 
 # move
-const moving_able_width = 400
-const moving_speed = 400
-var velocity = Vector2(0, 0)
+const moving_able_width: float = 400
+const moving_speed: float = 400
+var velocity: Vector2 = Vector2(0, 0)
 
 # rotate
 const rotating_able_radians: float = PI / 2
@@ -15,6 +15,7 @@ var rotating_velocity_radians: float = 0
 
 # human
 var having_human: Human = null
+var having_human_flag: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,25 +23,52 @@ func _ready():
 	pass # Replace with function body.
 
 
+func start_game():
+	create_having_human()
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
 	move_holizon(delta)
-	rotate_by_motion(delta)
 	limit_position()
+	
+	rotate_by_motion(delta)
 	limit_rotation()
+	
+	handle_having_human()
 
 
 func create_having_human():
-	have_human(Human.create_human())
-
-
-func have_human(human: Human):
-	having_human = human
-	move_having_human()
+	if not having_human_flag:
+		having_human = Human.create_random_human()
+		having_human.collision_layer = 0
+		move_having_human()
+		
+		get_parent().add_child(having_human)
+		
+		having_human_flag = true
 
 
 func move_having_human():
 	having_human.position = position
+
+
+func release_having_human():
+	having_human.collision_mask = 1
+	having_human = null
+	
+	having_human_flag = false
+
+
+func handle_having_human():
+	if having_human_flag:
+		move_having_human()
+		
+		if Input.is_action_just_pressed("ui_accept"):
+			release_having_human()
+			
+			# 実際は着地後
+			# create_having_human()
 
 
 func rotate_by_motion(delta: float):

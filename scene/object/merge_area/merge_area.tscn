@@ -1,59 +1,51 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6sjg3x4mchvq"]
+[gd_scene load_steps=11 format=3 uid="uid://c6sjg3x4mchvq"]
 
 [ext_resource type="Script" path="res://scene/object/merge_area/merge_area.gd" id="1_k8p45"]
 [ext_resource type="PackedScene" uid="uid://c82ewfgforqh7" path="res://scene/object/human/8/8_none.tscn" id="2_cuggk"]
+[ext_resource type="PackedScene" uid="uid://ccbd2jdj0mfk5" path="res://scene/object/god/god.tscn" id="2_v15yf"]
 [ext_resource type="PackedScene" uid="uid://dj5osfevtcfuk" path="res://scene/object/human/0/0_none.tscn" id="3_o51qr"]
 [ext_resource type="PackedScene" uid="uid://eghu2mvvc3ai" path="res://scene/object/human/1/1_male.tscn" id="4_vdk2o"]
 [ext_resource type="PackedScene" uid="uid://04alroxd31gt" path="res://scene/object/human/1/1_female.tscn" id="5_112y6"]
 [ext_resource type="PackedScene" uid="uid://bs4qvcnx1iyte" path="res://scene/object/human/2/2_male.tscn" id="6_j50pi"]
 [ext_resource type="PackedScene" uid="uid://bloe7mnd4b1yc" path="res://scene/object/human/4/4_male.tscn" id="7_hf7vb"]
 [ext_resource type="PackedScene" uid="uid://bcto6dwgso18v" path="res://scene/object/human/4/4_female.tscn" id="8_xprw3"]
-[ext_resource type="PackedScene" uid="uid://5wlqpuavsaq4" path="res://scene/object/human/5/5_female.tscn" id="9_1t1cg"]
 [ext_resource type="PackedScene" uid="uid://bh7vbb51y5md6" path="res://scene/object/human/6/6_female.tscn" id="10_x7piw"]
-[ext_resource type="Script" path="res://scene/object/human/5/5_female.gd" id="11_80mw3"]
-[ext_resource type="PackedScene" uid="uid://bo6h1oy6iyn47" path="res://scene/object/human/7/7_male.tscn" id="12_mj7wi"]
-[ext_resource type="Script" path="res://scene/object/human/5/5_male.gd" id="13_uroms"]
 
 [node name="merge_area" type="Node2D"]
 script = ExtResource("1_k8p45")
+
+[node name="god" parent="." instance=ExtResource("2_v15yf")]
+position = Vector2(0, -284)
 
 [node name="8_none2" parent="." instance=ExtResource("2_cuggk")]
 position = Vector2(56.0001, -747)
 
 [node name="0" parent="." instance=ExtResource("3_o51qr")]
-position = Vector2(248, 79)
+position = Vector2(242, 72)
 
 [node name="0_2" parent="." instance=ExtResource("3_o51qr")]
-position = Vector2(222, 152)
+position = Vector2(216, 145)
 
 [node name="1_male" parent="." instance=ExtResource("4_vdk2o")]
-position = Vector2(1, 107)
+position = Vector2(-5, 100)
 
 [node name="1_female" parent="." instance=ExtResource("5_112y6")]
-position = Vector2(210, -172)
+position = Vector2(204, -179)
 
 [node name="2_male" parent="." instance=ExtResource("6_j50pi")]
-position = Vector2(223, -314)
+position = Vector2(217, -321)
 
 [node name="4_male" parent="." instance=ExtResource("7_hf7vb")]
-position = Vector2(153, -1)
+position = Vector2(147, -8)
 
 [node name="4_female" parent="." instance=ExtResource("8_xprw3")]
-position = Vector2(8, -157)
-
-[node name="5_male" parent="." instance=ExtResource("9_1t1cg")]
-position = Vector2(-190, -38)
+position = Vector2(2, -164)
 
 [node name="6_female" parent="." instance=ExtResource("10_x7piw")]
-position = Vector2(64, -457)
-script = ExtResource("11_80mw3")
-
-[node name="7_male" parent="." instance=ExtResource("12_mj7wi")]
-position = Vector2(-145, -379)
-script = ExtResource("13_uroms")
+position = Vector2(58, -464)
 
 [node name="8_none" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(238, -537)
+position = Vector2(250, -514)
 
 [connection signal="collision_between_human" from="0" to="." method="_on_collision_between_human"]
 [connection signal="collision_between_human" from="0_2" to="." method="_on_collision_between_human"]
