@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://i8xewfcvg60k"]
+
+[ext_resource type="Script" path="res://scene/object/over_zone/over_zone.gd" id="1_32r2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ej00"]
+size = Vector2(560, 60)
+
+[node name="over_zone" type="Area2D"]
+script = ExtResource("1_32r2i")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4ej00")
+
+[node name="over_timer" type="Timer" parent="."]

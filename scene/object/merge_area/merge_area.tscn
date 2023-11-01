@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6sjg3x4mchvq"]
+[gd_scene load_steps=13 format=3 uid="uid://c6sjg3x4mchvq"]
 
 [ext_resource type="Script" path="res://scene/object/merge_area/merge_area.gd" id="1_k8p45"]
 [ext_resource type="PackedScene" uid="uid://c82ewfgforqh7" path="res://scene/object/human/8/8_none.tscn" id="2_cuggk"]
 [ext_resource type="PackedScene" uid="uid://ccbd2jdj0mfk5" path="res://scene/object/god/god.tscn" id="2_v15yf"]
+[ext_resource type="PackedScene" uid="uid://ceudqeq6l5kjk" path="res://scene/object/box/box.tscn" id="3_1nocl"]
 [ext_resource type="PackedScene" uid="uid://dj5osfevtcfuk" path="res://scene/object/human/0/0_none.tscn" id="3_o51qr"]
 [ext_resource type="PackedScene" uid="uid://eghu2mvvc3ai" path="res://scene/object/human/1/1_male.tscn" id="4_vdk2o"]
 [ext_resource type="PackedScene" uid="uid://04alroxd31gt" path="res://scene/object/human/1/1_female.tscn" id="5_112y6"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bloe7mnd4b1yc" path="res://scene/object/human/4/4_male.tscn" id="7_hf7vb"]
 [ext_resource type="PackedScene" uid="uid://bcto6dwgso18v" path="res://scene/object/human/4/4_female.tscn" id="8_xprw3"]
 [ext_resource type="PackedScene" uid="uid://bh7vbb51y5md6" path="res://scene/object/human/6/6_female.tscn" id="10_x7piw"]
+[ext_resource type="PackedScene" uid="uid://i8xewfcvg60k" path="res://scene/object/over_zone/over_zone.tscn" id="12_ojn2s"]
 
 [node name="merge_area" type="Node2D"]
 script = ExtResource("1_k8p45")
@@ -17,35 +19,54 @@ script = ExtResource("1_k8p45")
 [node name="god" parent="." instance=ExtResource("2_v15yf")]
 position = Vector2(0, -284)
 
+[node name="box" parent="." instance=ExtResource("3_1nocl")]
+
 [node name="8_none2" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(56.0001, -747)
+position = Vector2(-170, -26)
 
 [node name="0" parent="." instance=ExtResource("3_o51qr")]
-position = Vector2(242, 72)
+position = Vector2(1571, 491)
 
 [node name="0_2" parent="." instance=ExtResource("3_o51qr")]
-position = Vector2(216, 145)
+position = Vector2(1545, 564)
 
 [node name="1_male" parent="." instance=ExtResource("4_vdk2o")]
-position = Vector2(-5, 100)
+position = Vector2(1324, 519)
 
 [node name="1_female" parent="." instance=ExtResource("5_112y6")]
-position = Vector2(204, -179)
+position = Vector2(1533, 240)
 
 [node name="2_male" parent="." instance=ExtResource("6_j50pi")]
-position = Vector2(217, -321)
+position = Vector2(1546, 98)
 
 [node name="4_male" parent="." instance=ExtResource("7_hf7vb")]
-position = Vector2(147, -8)
+position = Vector2(1476, 411)
 
 [node name="4_female" parent="." instance=ExtResource("8_xprw3")]
-position = Vector2(2, -164)
+position = Vector2(1331, 255)
 
 [node name="6_female" parent="." instance=ExtResource("10_x7piw")]
-position = Vector2(58, -464)
+position = Vector2(1333, -230)
 
 [node name="8_none" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(250, -514)
+position = Vector2(47, -24.9999)
+
+[node name="1_male2" parent="." instance=ExtResource("4_vdk2o")]
+position = Vector2(1096, -157)
+
+[node name="1_male3" parent="." instance=ExtResource("4_vdk2o")]
+position = Vector2(1586, -117)
+
+[node name="8_none3" parent="." instance=ExtResource("2_cuggk")]
+position = Vector2(-60.9999, -141)
+rotation = 3.14159
+
+[node name="8_none4" parent="." instance=ExtResource("2_cuggk")]
+position = Vector2(165, -139)
+rotation = 3.14159
+
+[node name="over_zone" parent="." instance=ExtResource("12_ojn2s")]
+position = Vector2(0, -250)
 
 [connection signal="collision_between_human" from="0" to="." method="_on_collision_between_human"]
 [connection signal="collision_between_human" from="0_2" to="." method="_on_collision_between_human"]

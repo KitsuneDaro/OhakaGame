@@ -11,9 +11,9 @@ func _ready():
 
 
 func set_second_timer():
-	$second_counter.timeout.connect(count)
 	$second_counter.wait_time = 1.0
 	$second_counter.one_shot = false
+	$second_counter.timeout.connect(count)
 	$second_counter.start()
 
 func set_counting_labels():

@@ -29,7 +29,11 @@ var time: float = 0
 const creating_human_life_stage_rates: Array = [0.4, 0.3]
 # 自然な出生性比を参考
 # https://ourworldindata.org/gender-ratio
-const creating_human_female_rate: float = 100 / 205
+# 100 / 205
+const creating_human_female_rate: float = 0.488
+
+# merge
+var merging_able_flag: bool = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,9 +46,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-	time += delta
-	scale_up()
-	attach_scale(scale_up_rate)
+	if scale_up_rate != 1:
+		time += delta
+		scale_up()
+		attach_scale(scale_up_rate)
 
 
 # スケールの初期化
@@ -90,21 +95,19 @@ static func load_humans():
 		human_scenes.push_back(kind_scenes)
 
 
+# 指定した人間を作る
+static func create_human(life_stage: int, gender: String):
+	if not Human.is_correct_human(life_stage, gender):
+		return null
+	
+	var human: Human = Human.human_scenes[life_stage][gender].instantiate()
+	return human
+
+
 # ランダムに人間を作る
 static func create_random_human() -> Human:
 	# life_stage
-	var life_stage_prob: float = 0
-	var life_stage: int = 0
-	var uniform_prob: float = 0
-	
-	uniform_prob = randf()
-	
-	for new_life_stage in range(len(creating_human_life_stage_rates)):
-		var rate = creating_human_life_stage_rates[new_life_stage]
-		life_stage_prob += rate
-		
-		if uniform_prob < life_stage_prob:
-			life_stage = new_life_stage
+	var life_stage: int = get_random_life_stage()
 	
 	# gender
 	var gender: String = 'none'
@@ -119,6 +122,25 @@ static func create_random_human() -> Human:
 	return human
 
 
+# ランダムなライフステージを作る
+static func get_random_life_stage() -> int:
+	var life_stage_prob: float = 0
+	var life_stage: int = len(creating_human_life_stage_rates)
+	var uniform_prob: float = 0
+	
+	uniform_prob = randf()
+	
+	for new_life_stage in range(len(creating_human_life_stage_rates)):
+		var rate = creating_human_life_stage_rates[new_life_stage]
+		life_stage_prob += rate
+		
+		if uniform_prob < life_stage_prob:
+			life_stage = new_life_stage
+	
+	return life_stage
+
+
+# ランダムな性別を作る
 static func get_random_gender() -> String:
 	var uniform_prob = randf()
 	
@@ -143,16 +165,9 @@ static func is_merge_able_humans(human1: Human, human2: Human) -> bool:
 		human1.life_stage == human2.life_stage
 		and human1.gender == human2.gender
 		and human1.life_stage < len(human_scene_kinds) - 1
+		and human1.merging_able_flag
+		and human2.merging_able_flag
 		)
-
-
-# 指定した人間を作る
-static func create_human(life_stage: int, gender: String):
-	if not Human.is_correct_human(life_stage, gender):
-		return null
-	
-	var human: Human = Human.human_scenes[life_stage][gender].instantiate()
-	return human
 
 
 # ぶつかったとき
@@ -160,9 +175,17 @@ func _on_body_entered(body: RigidBody2D):
 	if body is Human:
 		var human1: Human = self
 		var human2: Human = body
+		
 		if (human1.get_index() < human2.get_index()
 		and is_merge_able_humans(human1, human2)):
-			emit_signal('collision_between_human', human1, human2)
+			merge_humans(human1, human2)
+
+func merge_humans(human1: Human, human2: Human):
+	# 同時に合体を防ぐ
+	human1.merging_able_flag = false
+	human2.merging_able_flag = false
+	
+	emit_signal('collision_between_human', human1, human2)
 
 
 # 人間の合体

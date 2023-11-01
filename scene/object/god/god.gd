@@ -16,6 +16,10 @@ var rotating_velocity_radians: float = 0
 # human
 var having_human: Human = null
 var having_human_flag: bool = false
+const having_human_lift_speed: float = 200
+var released_human: Human = null
+var releasing_able_flag: bool = false
+const creating_human_waiting_time: float = 1.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -35,40 +39,56 @@ func _process(delta: float):
 	rotate_by_motion(delta)
 	limit_rotation()
 	
-	handle_having_human()
+	handle_having_human(delta)
 
 
 func create_having_human():
 	if not having_human_flag:
 		having_human = Human.create_random_human()
 		having_human.collision_layer = 0
-		move_having_human()
-		
+		having_human.freeze = true
+		having_human.merging_able_flag = false
+
+		having_human.position = position
 		get_parent().add_child(having_human)
 		
 		having_human_flag = true
+		releasing_able_flag = true
 
 
-func move_having_human():
-	having_human.position = position
+func move_having_human(delta: float):
+	having_human.position.x = position.x
 
 
 func release_having_human():
-	having_human.collision_mask = 1
+	having_human.collision_layer = 1
+	having_human.freeze = false
+	having_human.merging_able_flag = true
+	
+	having_human.connect('body_entered', _on_released_human_body_entered)
+	
+	released_human = having_human
 	having_human = null
 	
 	having_human_flag = false
+	releasing_able_flag = false
 
 
-func handle_having_human():
+func _on_released_human_body_entered(body):
+	released_human.disconnect('body_entered', _on_released_human_body_entered)
+	released_human = null
+	
+	await get_tree().create_timer(creating_human_waiting_time).timeout
+	
+	create_having_human()
+
+
+func handle_having_human(delta: float):
 	if having_human_flag:
-		move_having_human()
+		move_having_human(delta)
 		
 		if Input.is_action_just_pressed("ui_accept"):
 			release_having_human()
-			
-			# 実際は着地後
-			# create_having_human()
 
 
 func rotate_by_motion(delta: float):
@@ -76,7 +96,8 @@ func rotate_by_motion(delta: float):
 		rotating_velocity_radians = -rotating_first_speed_radians
 	elif Input.is_action_just_pressed("ui_right"):
 		rotating_velocity_radians = rotating_first_speed_radians
-	elif (Input.is_action_pressed("ui_left")
+	
+	if (Input.is_action_pressed("ui_left")
 		or Input.is_action_pressed("ui_right")):
 		if rotation * rotating_velocity_radians > 0:
 			rotating_velocity_radians = rotating_velocity_radians * rotating_decay_rate
