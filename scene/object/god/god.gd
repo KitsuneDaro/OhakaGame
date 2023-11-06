@@ -1,7 +1,7 @@
 extends Node2D
 
 # move
-const moving_able_width: float = 400
+const moving_able_width: float = 450
 const moving_speed: float = 400
 var velocity: Vector2 = Vector2(0, 0)
 
@@ -87,7 +87,7 @@ func handle_having_human(delta: float):
 	if having_human_flag:
 		move_having_human(delta)
 		
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") and releasing_able_flag:
 			release_having_human()
 
 

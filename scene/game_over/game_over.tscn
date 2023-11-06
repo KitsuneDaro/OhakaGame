@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://l5qgr3h6oj1s"]
+
+[ext_resource type="PackedScene" uid="uid://c8a0lj7hx0rs3" path="res://scene/object/label_button/label_button.tscn" id="1_dsl2n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ldxg"]
+font_size = 100
+font_color = Color(0.835294, 0.835294, 0.835294, 1)
+outline_size = 25
+outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hv0jh"]
+font_size = 60
+font_color = Color(0.835294, 0.835294, 0.835294, 1)
+outline_size = 15
+outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="game_over" type="Node2D"]
+
+[node name="game_over_label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -196.0
+offset_right = 302.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_2ldxg")
+
+[node name="score_label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -43.0
+offset_right = 300.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_hv0jh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="share_button" parent="." instance=ExtResource("1_dsl2n")]
+offset_top = 50.0
+offset_bottom = 150.0
+origin_position = Vector2(0, 100)
+label_text = "Share"
+
+[node name="retry_button" parent="." instance=ExtResource("1_dsl2n")]
+offset_left = -235.0
+offset_top = 203.0
+offset_right = -35.0
+offset_bottom = 303.0
+label_text = "Retry"
+
+[node name="title_button" parent="." instance=ExtResource("1_dsl2n")]
+offset_left = 45.0
+offset_top = 205.0
+offset_right = 245.0
+offset_bottom = 305.0
+label_text = "Title"
+
+[node name="Camera2D" type="Camera2D" parent="."]

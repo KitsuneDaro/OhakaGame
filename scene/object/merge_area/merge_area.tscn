@@ -17,12 +17,12 @@
 script = ExtResource("1_k8p45")
 
 [node name="god" parent="." instance=ExtResource("2_v15yf")]
-position = Vector2(0, -284)
+position = Vector2(0, -308)
 
 [node name="box" parent="." instance=ExtResource("3_1nocl")]
 
 [node name="8_none2" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(-170, -26)
+position = Vector2(574, -127)
 
 [node name="0" parent="." instance=ExtResource("3_o51qr")]
 position = Vector2(1571, 491)
@@ -49,7 +49,7 @@ position = Vector2(1331, 255)
 position = Vector2(1333, -230)
 
 [node name="8_none" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(47, -24.9999)
+position = Vector2(791, -126)
 
 [node name="1_male2" parent="." instance=ExtResource("4_vdk2o")]
 position = Vector2(1096, -157)
@@ -58,15 +58,15 @@ position = Vector2(1096, -157)
 position = Vector2(1586, -117)
 
 [node name="8_none3" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(-60.9999, -141)
+position = Vector2(683, -242)
 rotation = 3.14159
 
 [node name="8_none4" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(165, -139)
+position = Vector2(909, -240)
 rotation = 3.14159
 
 [node name="over_zone" parent="." instance=ExtResource("12_ojn2s")]
-position = Vector2(0, -250)
+position = Vector2(0, -270)
 
 [connection signal="collision_between_human" from="0" to="." method="_on_collision_between_human"]
 [connection signal="collision_between_human" from="0_2" to="." method="_on_collision_between_human"]

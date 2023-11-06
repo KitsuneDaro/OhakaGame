@@ -136,6 +136,7 @@ static func get_random_life_stage() -> int:
 		
 		if uniform_prob < life_stage_prob:
 			life_stage = new_life_stage
+			break
 	
 	return life_stage
 

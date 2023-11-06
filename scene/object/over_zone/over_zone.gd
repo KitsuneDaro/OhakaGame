@@ -1,6 +1,7 @@
 extends Area2D
 
 signal game_over
+signal all_bodies_exit
 
 var entered_human_num: int = 0
 var over_timer_waiting_time: float = 2.0
@@ -40,3 +41,4 @@ func _on_body_exited(body):
 		
 		if entered_human_num == 0:
 			$over_timer.stop()
+			emit_signal("all_bodies_exit")

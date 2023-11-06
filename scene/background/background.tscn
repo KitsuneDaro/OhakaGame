@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch1tub08ykerd"]
+
+[ext_resource type="Texture2D" uid="uid://br172tntxgbc1" path="res://util/image/galaxy.jpg" id="1_jf07b"]
+[ext_resource type="Script" path="res://scene/background/background.gd" id="2_wrl5f"]
+
+[node name="background" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_jf07b")
+script = ExtResource("2_wrl5f")

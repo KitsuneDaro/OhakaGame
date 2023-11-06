@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://cj5xa5w55ryhg"]
 
 [ext_resource type="Script" path="res://scene/main_game/main_game.gd" id="1_od27i"]
-[ext_resource type="PackedScene" uid="uid://c6sjg3x4mchvq" path="res://scene/object/merge_area/merge_area.tscn" id="1_ube7j"]
-[ext_resource type="PackedScene" uid="uid://d0dujruk7pd56" path="res://scene/object/start_count/start_count.tscn" id="4_w4yjl"]
+[ext_resource type="PackedScene" uid="uid://c6sjg3x4mchvq" path="res://scene/object/merge_area/merge_area.tscn" id="2_mdb1b"]
+[ext_resource type="PackedScene" uid="uid://d0dujruk7pd56" path="res://scene/object/start_count/start_count.tscn" id="3_72rka"]
 
 [node name="main_game" type="Node2D"]
 script = ExtResource("1_od27i")
 
-[node name="merge_area" parent="." instance=ExtResource("1_ube7j")]
+[node name="merge_area" parent="." instance=ExtResource("2_mdb1b")]
 position = Vector2(0, 96)
 
-[node name="start_count" parent="." instance=ExtResource("4_w4yjl")]
+[node name="start_count" parent="." instance=ExtResource("3_72rka")]
 
 [node name="camera" type="Camera2D" parent="."]
