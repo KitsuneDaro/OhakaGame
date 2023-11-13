@@ -21,6 +21,9 @@ var released_human: Human = null
 var releasing_able_flag: bool = false
 const creating_human_waiting_time: float = 1.0
 
+# controlable
+var control_able: bool = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,13 +36,14 @@ func start_game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-	move_holizon(delta)
-	limit_position()
-	
-	rotate_by_motion(delta)
-	limit_rotation()
-	
-	handle_having_human(delta)
+	if control_able:
+		move_holizon(delta)
+		limit_position()
+		
+		rotate_by_motion(delta)
+		limit_rotation()
+		
+		handle_having_human(delta)
 
 
 func create_having_human():
@@ -132,3 +136,7 @@ func limit_position():
 		position.x = moving_able_width / 2
 	elif position.x < -moving_able_width / 2:
 		position.x = -moving_able_width / 2
+
+
+func set_game_over():
+	control_able = false

@@ -11,5 +11,3 @@ script = ExtResource("1_od27i")
 position = Vector2(0, 96)
 
 [node name="start_count" parent="." instance=ExtResource("3_72rka")]
-
-[node name="camera" type="Camera2D" parent="."]

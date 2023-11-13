@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://di4pg0l6d4g5f"]
+
+[ext_resource type="Shader" path="res://scene/change_scene/black_out.gdshader" id="1_etgp4"]
+[ext_resource type="Script" path="res://scene/change_scene/change_scene.gd" id="1_wbof6"]
+
+[sub_resource type="Curve" id="Curve_n4vx0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3ln4"]
+shader = ExtResource("1_etgp4")
+
+[node name="change_scene" type="Node"]
+script = ExtResource("1_wbof6")
+ease_curve = SubResource("Curve_n4vx0")
+
+[node name="black_out" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_d3ln4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0.0901961, 0.0901961, 0.0901961, 1)

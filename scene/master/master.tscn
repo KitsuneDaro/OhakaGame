@@ -10,3 +10,5 @@ script = ExtResource("1_6ty1b")
 [node name="background" parent="." instance=ExtResource("2_gfd4m")]
 
 [node name="main_game" parent="." instance=ExtResource("1_jsras")]
+
+[node name="camera" type="Camera2D" parent="."]
