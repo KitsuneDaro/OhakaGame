@@ -6,6 +6,7 @@ const game_over_scene = preload("res://scene/game_over/game_over.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Variables.score = 0
 	connect_signals()
 
 

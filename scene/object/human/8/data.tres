@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HumanData" load_steps=2 format=3 uid="uid://b854meg5k3ieq"]
+
+[ext_resource type="Script" path="res://scene/object/human/human_data.gd" id="1_2i8uo"]
+
+[resource]
+script = ExtResource("1_2i8uo")
+life_stage = 8
+life_stage_name = "墓"
+score = 2560
+score_up_text = ""

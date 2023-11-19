@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HumanData" load_steps=2 format=3 uid="uid://cl4jj30c3trdi"]
+
+[ext_resource type="Script" path="res://scene/object/human/human_data.gd" id="1_bc7nt"]
+
+[resource]
+script = ExtResource("1_bc7nt")
+life_stage = 0
+life_stage_name = "幼稚園児"
+score = 20
+score_up_text = "第一次反抗期"

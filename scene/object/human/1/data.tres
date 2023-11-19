@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HumanData" load_steps=2 format=3 uid="uid://dyc0o3c05ewxi"]
+
+[ext_resource type="Script" path="res://scene/object/human/human_data.gd" id="1_rigjs"]
+
+[resource]
+script = ExtResource("1_rigjs")
+life_stage = 0
+life_stage_name = "胎児"
+score = 5
+score_up_text = "生命の始まり"

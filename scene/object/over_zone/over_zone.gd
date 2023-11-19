@@ -21,11 +21,11 @@ func set_over_timer():
 	$over_timer.wait_time = over_timer_waiting_time
 	$over_timer.one_shot = true
 	$over_timer.timeout.connect(time_out_of_over_timer)
-	$over_timer.start()
 
 
 func time_out_of_over_timer():
 	emit_signal("game_over")
+	print('game over')
 
 
 func _on_body_enterd(body):

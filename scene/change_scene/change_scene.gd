@@ -1,5 +1,8 @@
 extends Node
 
+signal coverd
+signal uncoverd
+
 var cover_flag: bool = false
 var cover_time: float = 0
 @export var cover_max_time: float = 0.5
@@ -13,7 +16,6 @@ var uncover_time: float = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_black_out_position(Vector2(0, 0))
-	cover_scene()
 
 
 func set_black_out_position(new_position: Vector2):
@@ -36,8 +38,7 @@ func _process(delta):
 			cover_time += delta
 			
 			if cover_time > cover_max_time:
-				cover_flag = false
-				set_black_out_x(0)
+				finish_cover_scene()
 		
 		if uncover_flag:
 			var sample_point = uncover_time / uncover_max_time
@@ -45,18 +46,30 @@ func _process(delta):
 			uncover_time += delta
 			
 			if uncover_time > uncover_max_time:
-				uncover_flag = false
-				set_black_out_x(-width)
+				finish_uncover_scene()
 
 
-func cover_scene():
+func start_cover_scene():
 	var width = get_viewport().size.x
 	cover_flag = true
 	cover_time = 0
 	set_black_out_x(width)
 
 
-func uncover_scene():
+func finish_cover_scene():
+	cover_flag = false
+	set_black_out_x(0)
+	emit_signal("coverd")
+
+
+func start_uncover_scene():
 	uncover_flag = true
 	uncover_time = 0
 	set_black_out_x(0)
+
+
+func finish_uncover_scene():
+	var width = get_viewport().size.x
+	uncover_flag = false
+	set_black_out_x(-width)
+	emit_signal("uncoverd")

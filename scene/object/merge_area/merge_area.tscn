@@ -22,7 +22,7 @@ position = Vector2(0, -308)
 [node name="box" parent="." instance=ExtResource("3_1nocl")]
 
 [node name="8_none2" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(574, -127)
+position = Vector2(-154, 41)
 
 [node name="0" parent="." instance=ExtResource("3_o51qr")]
 position = Vector2(1571, 491)
@@ -49,7 +49,7 @@ position = Vector2(1331, 255)
 position = Vector2(1333, -230)
 
 [node name="8_none" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(791, -126)
+position = Vector2(63.0001, 42)
 
 [node name="1_male2" parent="." instance=ExtResource("4_vdk2o")]
 position = Vector2(1096, -157)
@@ -58,11 +58,11 @@ position = Vector2(1096, -157)
 position = Vector2(1586, -117)
 
 [node name="8_none3" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(683, -242)
+position = Vector2(-44.9999, -74)
 rotation = 3.14159
 
 [node name="8_none4" parent="." instance=ExtResource("2_cuggk")]
-position = Vector2(909, -240)
+position = Vector2(181, -72)
 rotation = 3.14159
 
 [node name="over_zone" parent="." instance=ExtResource("12_ojn2s")]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HumanData" load_steps=2 format=3 uid="uid://bhrfly8m3r0h3"]
+
+[ext_resource type="Script" path="res://scene/object/human/human_data.gd" id="1_26xog"]
+
+[resource]
+script = ExtResource("1_26xog")
+life_stage = 0
+life_stage_name = "中学生"
+score = 160
+score_up_text = "黒歴史編纂期"

@@ -14,8 +14,10 @@ const human_scene_kinds: Array = [
 	['female', 'male'],
 	['none']
 ]
-const human_path: String = "res://scene/object/human/%d/%d_%s.tscn"
+const human_scene_path: String = "res://scene/object/human/%d/%d_%s.tscn"
+const human_data_path: String = "res://scene/object/human/%d/data.tscn"
 static var human_scenes: Array = []
+static var human_datas: Array = []
 
 # scale up
 var scale_up_first_speed: float = 3.0
@@ -90,9 +92,12 @@ static func load_humans():
 		var kind_scenes: Dictionary = {}
 		
 		for kind in kinds:
-			kind_scenes[kind] = load(human_path % [life_stage, life_stage, kind])
+			kind_scenes[kind] = load(human_scene_path % [life_stage, life_stage, kind])
 		
 		human_scenes.push_back(kind_scenes)
+		
+		var human_data = load(human_scene_path % life_stage)
+		human_datas.push_back(human_data)
 
 
 # 指定した人間を作る
@@ -215,3 +220,7 @@ func _on_collision_between_human(human1: Human, human2: Human):
 	# ボディの消去
 	human1.queue_free()
 	human2.queue_free()
+
+# 人間のスコアを得る
+func get_score(life_stage: int) -> int:
+	return human_datas[life_stage].score
