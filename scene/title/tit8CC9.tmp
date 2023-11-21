@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://ojmlmhmtxgwp"]
+
+[ext_resource type="Script" path="res://scene/title/title.gd" id="1_stty7"]
+[ext_resource type="FontFile" uid="uid://c4cnxfl366h67" path="res://util/font/uzura.ttf" id="2_wdpy2"]
+[ext_resource type="PackedScene" uid="uid://c8a0lj7hx0rs3" path="res://scene/object/label_button/label_button.tscn" id="3_eq74r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_235x0"]
+font = ExtResource("2_wdpy2")
+font_size = 100
+font_color = Color(0.835294, 0.835294, 0.835294, 1)
+outline_size = 25
+outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="title" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stty7")
+
+[node name="game_over_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -220.0
+offset_right = 300.0
+offset_bottom = -80.0
+pivot_offset = Vector2(300, 70)
+text = "おはかゲーム"
+label_settings = SubResource("LabelSettings_235x0")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="start_button" parent="." instance=ExtResource("3_eq74r")]
+layout_mode = 0
+offset_left = -150.0
+offset_top = -20.0
+offset_right = 150.0
+offset_bottom = 80.0
+label_text = "スタート"
+label_font = ExtResource("2_wdpy2")
+metadata/_edit_use_anchors_ = true
+
+[node name="explanation_button" parent="." instance=ExtResource("3_eq74r")]
+layout_mode = 0
+offset_left = -320.0
+offset_top = 120.0
+offset_right = -20.0
+offset_bottom = 220.0
+label_text = "せつめい"
+label_font = ExtResource("2_wdpy2")
+metadata/_edit_use_anchors_ = true

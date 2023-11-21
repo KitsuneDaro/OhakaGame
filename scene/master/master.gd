@@ -14,23 +14,23 @@ func _process(delta):
 	pass
 
 
-func change_scene(scene_path: String, delete_node: Node):
+func change_scene(next_scene: PackedScene, delete_node: Node):
 	var scene_change_node: Node = scene_change_scene.instantiate()
 	add_child(scene_change_node)
 	
 	scene_change_node.start_cover_scene()
 	await scene_change_node.coverd
 	
-	var load_node_name: String = delete_node.name
+	var next_scene_node_name: String = delete_node.name
 	delete_node.queue_free()
 	
-	var load_node: Node = load(scene_path).instantiate()
-	add_child(load_node)
+	var next_scene_node: Node = next_scene.instantiate()
+	add_child(next_scene_node)
 	
 	scene_change_node.start_uncover_scene()
 	await scene_change_node.uncoverd
 	
-	load_node.name = load_node_name
+	next_scene_node.name = next_scene_node_name
 	
 	scene_change_node.queue_free()
 	emit_signal("scene_change_finished")

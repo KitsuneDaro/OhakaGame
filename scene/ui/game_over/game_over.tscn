@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://dexeiqf0llhqr"]
+
+[ext_resource type="Script" path="res://scene/ui/game_over/game_over.gd" id="1_f5lii"]
+[ext_resource type="FontFile" uid="uid://c4cnxfl366h67" path="res://util/font/uzura.ttf" id="2_s5mgr"]
+[ext_resource type="PackedScene" uid="uid://c8a0lj7hx0rs3" path="res://scene/object/label_button/label_button.tscn" id="3_ybnt3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ldxg"]
+font = ExtResource("2_s5mgr")
+font_size = 120
+font_color = Color(0.835294, 0.835294, 0.835294, 1)
+outline_size = 25
+outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hv0jh"]
+font = ExtResource("2_s5mgr")
+font_size = 80
+font_color = Color(0.835294, 0.835294, 0.835294, 1)
+outline_size = 15
+outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f5lii")
+
+[node name="game_over_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 79.0
+offset_right = 990.0
+offset_bottom = 219.0
+text = "ゲームオーバー"
+label_settings = SubResource("LabelSettings_2ldxg")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="score_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 200.0
+offset_top = 210.0
+offset_right = 1000.0
+offset_bottom = 300.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "スコア："
+label_settings = SubResource("LabelSettings_hv0jh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="retry_button" parent="." instance=ExtResource("3_ybnt3")]
+layout_mode = 2
+offset_left = 250.0
+offset_top = 425.0
+offset_right = 550.0
+offset_bottom = 525.0
+label_text = "リトライ"
+label_font = ExtResource("2_s5mgr")
+metadata/_edit_use_anchors_ = true
+
+[node name="share_button" parent="." instance=ExtResource("3_ybnt3")]
+layout_mode = 2
+offset_left = 480.0
+offset_top = 320.0
+offset_right = 680.0
+offset_bottom = 420.0
+label_text = "シェア"
+label_font = ExtResource("2_s5mgr")
+metadata/_edit_use_anchors_ = true
+
+[node name="title_button" parent="." instance=ExtResource("3_ybnt3")]
+layout_mode = 2
+offset_left = 600.0
+offset_top = 427.0
+offset_right = 900.0
+offset_bottom = 527.0
+label_text = "タイトル"
+label_font = ExtResource("2_s5mgr")
+metadata/_edit_use_anchors_ = true
