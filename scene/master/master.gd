@@ -2,8 +2,6 @@ extends Node2D
 
 signal scene_change_finished
 
-const scene_change_scene: PackedScene = preload("res://scene/change_scene/change_scene.tscn")
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Human.load_humans()
@@ -15,7 +13,7 @@ func _process(delta):
 
 
 func change_scene(next_scene: PackedScene, delete_node: Node):
-	var scene_change_node: Node = scene_change_scene.instantiate()
+	var scene_change_node: Node = Scene.scene_change.instantiate()
 	add_child(scene_change_node)
 	
 	scene_change_node.start_cover_scene()

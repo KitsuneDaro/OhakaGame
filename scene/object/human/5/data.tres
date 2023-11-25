@@ -7,4 +7,4 @@ script = ExtResource("1_q80l3")
 life_stage = 5
 life_stage_name = "大人"
 score = 320
-score_up_text = ""
+score_up_text = "飲酒開始"

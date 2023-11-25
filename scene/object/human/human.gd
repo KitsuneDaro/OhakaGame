@@ -15,7 +15,7 @@ const human_scene_kinds: Array = [
 	['none']
 ]
 const human_scene_path: String = "res://scene/object/human/%d/%d_%s.tscn"
-const human_data_path: String = "res://scene/object/human/%d/data.tscn"
+const human_data_path: String = "res://scene/object/human/%d/data.tres"
 static var human_scenes: Array = []
 static var human_datas: Array = []
 
@@ -96,7 +96,8 @@ static func load_humans():
 		
 		human_scenes.push_back(kind_scenes)
 		
-		var human_data = load(human_scene_path % life_stage)
+		var human_data = load(human_data_path % life_stage)
+		print(human_data_path % life_stage, human_data)
 		human_datas.push_back(human_data)
 
 
@@ -220,7 +221,11 @@ func _on_collision_between_human(human1: Human, human2: Human):
 	# ボディの消去
 	human1.queue_free()
 	human2.queue_free()
+	
+	# スコア加点
+	Variables.score += get_score(life_stage)
+
 
 # 人間のスコアを得る
-func get_score(life_stage: int) -> int:
+static func get_score(life_stage: int) -> int:
 	return human_datas[life_stage].score

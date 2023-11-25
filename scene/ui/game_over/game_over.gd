@@ -1,8 +1,5 @@
 extends Control
 
-const main_game_scene: PackedScene = preload("res://scene/main_game/main_game.tscn")
-const title_scene: PackedScene = preload("res://scene/title/title.tscn")
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect_signals()
@@ -33,8 +30,8 @@ func share_on_twitter():
 
 
 func retry_game():
-	change_scene(main_game_scene)
+	change_scene(Scene.main_game)
 
 
 func go_to_title():
-	change_scene(title_scene)
+	change_scene(Scene.title)

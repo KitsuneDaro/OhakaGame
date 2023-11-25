@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_af17f")
-life_stage = 6
-life_stage_name = "社会人"
+life_stage = 7
+life_stage_name = "老人"
 score = 640
-score_up_text = ""
+score_up_text = "終わりの始まり"

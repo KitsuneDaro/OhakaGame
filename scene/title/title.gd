@@ -1,7 +1,5 @@
 extends Control
 
-const main_game_scene: PackedScene = preload("res://scene/main_game/main_game.tscn")
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect_signals()
@@ -9,7 +7,7 @@ func _ready():
 func connect_signals():
 	$start_button.connect("button_up", start_game)
 	$explanation_button.connect("button_up", explain_game)
-	#$option_button.connect("button_up", go_to_option)
+	$option_button.connect("button_up", go_to_option)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,12 +23,10 @@ func change_scene(next_scene: PackedScene):
 
 
 func start_game():
-	change_scene(main_game_scene)
-	print('hi')
+	change_scene(Scene.main_game)
 
 
 func explain_game():
-	print('oh')
 	pass
 
 

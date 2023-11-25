@@ -18,6 +18,7 @@ config/icon="res://util/image/icon.svg"
 [autoload]
 
 Variables="*res://util/variable/Variables.gd"
+Scene="*res://util/variable/Scene.gd"
 
 [display]
 

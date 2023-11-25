@@ -3,19 +3,13 @@
 [ext_resource type="Script" path="res://scene/ui/game_over/game_over.gd" id="1_f5lii"]
 [ext_resource type="FontFile" uid="uid://c4cnxfl366h67" path="res://util/font/uzura.ttf" id="2_s5mgr"]
 [ext_resource type="PackedScene" uid="uid://c8a0lj7hx0rs3" path="res://scene/object/label_button/label_button.tscn" id="3_ybnt3"]
+[ext_resource type="PackedScene" uid="uid://bibwcftxlsv72" path="res://scene/ui/score_label/score_label.tscn" id="3_yqoyb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ldxg"]
 font = ExtResource("2_s5mgr")
 font_size = 120
 font_color = Color(0.835294, 0.835294, 0.835294, 1)
 outline_size = 25
-outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_hv0jh"]
-font = ExtResource("2_s5mgr")
-font_size = 80
-font_color = Color(0.835294, 0.835294, 0.835294, 1)
-outline_size = 15
 outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
 
 [node name="game_over" type="Control"]
@@ -40,20 +34,19 @@ label_settings = SubResource("LabelSettings_2ldxg")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="score_label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 200.0
-offset_top = 210.0
-offset_right = 1000.0
-offset_bottom = 300.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "スコア："
-label_settings = SubResource("LabelSettings_hv0jh")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+[node name="score_label" parent="." instance=ExtResource("3_yqoyb")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 180.0
+offset_top = 216.0
+offset_right = 980.0
+offset_bottom = 306.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="retry_button" parent="." instance=ExtResource("3_ybnt3")]
 layout_mode = 2

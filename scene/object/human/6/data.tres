@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_4u5bd")
 life_stage = 0
-life_stage_name = ""
+life_stage_name = "社会人"
 score = 160
-score_up_text = "黒歴史編纂期"
+score_up_text = "人生の半分"

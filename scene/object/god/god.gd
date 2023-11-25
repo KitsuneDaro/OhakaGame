@@ -72,6 +72,10 @@ func release_having_human():
 	having_human.connect('body_entered', _on_released_human_body_entered)
 	
 	released_human = having_human
+	
+	# スコア加点
+	Variables.score += Human.get_score(having_human.life_stage)
+	
 	having_human = null
 	
 	having_human_flag = false

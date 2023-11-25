@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bibwcftxlsv72"]
+
+[ext_resource type="FontFile" uid="uid://c4cnxfl366h67" path="res://util/font/uzura.ttf" id="1_fbha4"]
+[ext_resource type="Script" path="res://scene/ui/score_label/score_label.gd" id="2_0bp2s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ygcr0"]
+font = ExtResource("1_fbha4")
+font_size = 80
+font_color = Color(0.835294, 0.835294, 0.835294, 1)
+outline_size = 15
+outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="score_label" type="Label"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -45.0
+offset_right = 400.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "スコア："
+label_settings = SubResource("LabelSettings_ygcr0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_0bp2s")
