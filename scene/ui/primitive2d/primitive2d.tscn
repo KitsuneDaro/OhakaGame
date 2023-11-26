@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch6bi18dhd6dk"]
+
+[ext_resource type="Script" path="res://scene/ui/primitive2d/primitive2d.gd" id="1_oqqov"]
+
+[node name="primitive2d" type="Node2D"]
+script = ExtResource("1_oqqov")

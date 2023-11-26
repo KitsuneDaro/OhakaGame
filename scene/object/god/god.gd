@@ -69,7 +69,8 @@ func release_having_human():
 	having_human.freeze = false
 	having_human.merging_able_flag = true
 	
-	having_human.connect('body_entered', _on_released_human_body_entered)
+	having_human.body_entered.connect(_on_released_human_body_entered)
+	having_human.created_human.emit(having_human.life_stage)
 	
 	released_human = having_human
 	

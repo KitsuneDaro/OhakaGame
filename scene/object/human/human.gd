@@ -2,6 +2,8 @@ extends RigidBody2D
 
 class_name Human
 signal collision_between_human
+signal created_human
+signal merged_human
 
 const human_scene_kinds: Array = [
 	['none'],
@@ -75,6 +77,8 @@ func attach_contact():
 func connect_signal():
 	body_entered.connect(_on_body_entered)
 	collision_between_human.connect(_on_collision_between_human)
+	created_human.connect(Variables._on_created_human)
+	merged_human.connect(Variables._on_merged_human)
 
 
 # 拡大
@@ -97,7 +101,7 @@ static func load_humans():
 		human_scenes.push_back(kind_scenes)
 		
 		var human_data = load(human_data_path % life_stage)
-		print(human_data_path % life_stage, human_data)
+		
 		human_datas.push_back(human_data)
 
 
@@ -221,6 +225,8 @@ func _on_collision_between_human(human1: Human, human2: Human):
 	# ボディの消去
 	human1.queue_free()
 	human2.queue_free()
+	
+	human1.emit_signal('merged_human', life_stage)
 	
 	# スコア加点
 	Variables.score += get_score(life_stage)

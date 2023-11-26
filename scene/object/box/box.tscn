@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceudqeq6l5kjk"]
+[gd_scene load_steps=5 format=3 uid="uid://ceudqeq6l5kjk"]
+
+[ext_resource type="PackedScene" uid="uid://ch6bi18dhd6dk" path="res://scene/ui/primitive2d/primitive2d.tscn" id="1_bd0qo"]
+[ext_resource type="Script" path="res://scene/object/box/box.gd" id="1_xbpav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47o54"]
 size = Vector2(600, 117)
@@ -7,24 +10,36 @@ size = Vector2(600, 117)
 size = Vector2(180, 465)
 
 [node name="box" type="Node2D"]
+script = ExtResource("1_xbpav")
 
 [node name="floor" type="StaticBody2D" parent="."]
-position = Vector2(0, 208)
+position = Vector2(0, 229)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(0, 48.5)
+position = Vector2(0, 45)
 shape = SubResource("RectangleShape2D_47o54")
 
 [node name="left_wall" type="StaticBody2D" parent="."]
-position = Vector2(-290, 0)
+position = Vector2(-290, 21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left_wall"]
 position = Vector2(-80, 0)
 shape = SubResource("RectangleShape2D_rpnmo")
 
 [node name="right_wall" type="StaticBody2D" parent="."]
-position = Vector2(290, -1)
+position = Vector2(290, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right_wall"]
 position = Vector2(80, 0)
 shape = SubResource("RectangleShape2D_rpnmo")
+
+[node name="primitive2d" parent="." instance=ExtResource("1_bd0qo")]
+position = Vector2(0, 1)
+type = 3
+color = Color(0.333333, 0.333333, 0.333333, 0.537255)
+enabled_outline = true
+outline_width = 10.0
+outline_color = Color(0.211765, 0.211765, 0.211765, 1)
+size = Vector2(570, 440)
+round_xratio = 0.124
+round_yratio = 0.247

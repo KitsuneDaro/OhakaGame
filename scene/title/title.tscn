@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scene/title/title.gd" id="1_stty7"]
 [ext_resource type="FontFile" uid="uid://c4cnxfl366h67" path="res://util/font/uzura.ttf" id="2_wdpy2"]
-[ext_resource type="PackedScene" uid="uid://c8a0lj7hx0rs3" path="res://scene/object/label_button/label_button.tscn" id="3_eq74r"]
+[ext_resource type="PackedScene" uid="uid://c8a0lj7hx0rs3" path="res://scene/ui/label_button/label_button.tscn" id="3_eq74r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_235x0"]
 font = ExtResource("2_wdpy2")
@@ -64,5 +64,3 @@ offset_bottom = 220.0
 label_text = "オプション"
 label_font = ExtResource("2_wdpy2")
 metadata/_edit_use_anchors_ = true
-
-[node name="camera" type="Camera2D" parent="."]

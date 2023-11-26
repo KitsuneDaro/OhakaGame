@@ -7,4 +7,4 @@ script = ExtResource("1_2i8uo")
 life_stage = 8
 life_stage_name = "墓"
 score = 2560
-score_up_text = "揺りかごから墓まで"
+score_up_text = "お墓完成！！"

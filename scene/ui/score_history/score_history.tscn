@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgtcyxm6a47ko"]
+
+[ext_resource type="FontFile" uid="uid://c4cnxfl366h67" path="res://util/font/uzura.ttf" id="1_6d5tr"]
+[ext_resource type="Script" path="res://scene/ui/score_history/score_history.gd" id="1_bljia"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p1onl"]
+font = ExtResource("1_6d5tr")
+font_size = 35
+font_color = Color(0.835294, 0.835294, 0.835294, 1)
+outline_size = 5
+outline_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="score_history" type="ScrollContainer"]
+offset_right = 300.0
+offset_bottom = 100.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="container" type="HBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("1_bljia")
+
+[node name="score_up_label" type="Label" parent="container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "称号名"
+label_settings = SubResource("LabelSettings_p1onl")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="score_label" type="Label" parent="container"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "スコア"
+label_settings = SubResource("LabelSettings_p1onl")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
