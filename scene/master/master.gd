@@ -32,3 +32,16 @@ func change_scene(next_scene: PackedScene, delete_node: Node):
 	
 	scene_change_node.queue_free()
 	emit_signal("scene_change_finished")
+
+
+func sound(path: String):
+	var audio_node :AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+	
+	audio_node.stream = load(path)
+	audio_node.autoplay = true
+	
+	add_child(audio_node)
+	
+	await audio_node.finished
+	
+	audio_node.queue_free()

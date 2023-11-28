@@ -5,6 +5,9 @@ signal game_start
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Variables.score = 0
+	Variables.game_over_flag = false
+	add_child(Human.last_collide_timer)
+	
 	connect_signals()
 
 
@@ -28,6 +31,7 @@ func start_game():
 
 func set_game_over():
 	var game_over = Scene.game_over.instantiate()
+	Variables.game_over_flag = true
 	add_child(game_over)
 	
 	$merge_area/god.set_game_over()

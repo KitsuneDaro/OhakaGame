@@ -1,7 +1,7 @@
 extends Node2D
 
 # move
-const moving_able_width: float = 450
+const moving_able_width: float = 520
 const moving_speed: float = 400
 var velocity: Vector2 = Vector2(0, 0)
 
@@ -58,6 +58,8 @@ func create_having_human():
 		
 		having_human_flag = true
 		releasing_able_flag = true
+		
+		get_node("/root/master").sound("res://util/music/効果音ブン.mp3")
 
 
 func move_having_human(delta: float):
@@ -96,7 +98,7 @@ func handle_having_human(delta: float):
 	if having_human_flag:
 		move_having_human(delta)
 		
-		if Input.is_action_just_pressed("ui_accept") and releasing_able_flag:
+		if Input.is_action_just_pressed("ui_accept") and releasing_able_flag and not Variables.over_area_flag:
 			release_having_human()
 
 

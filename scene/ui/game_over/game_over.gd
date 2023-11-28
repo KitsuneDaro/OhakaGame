@@ -27,11 +27,14 @@ func change_scene(next_scene: PackedScene):
 func share_on_twitter():
 	const text: String = 'おはかゲームでスコア%d点を記録しました！\nみんなもお墓づくりに挑戦しよう！'
 	Twitter.share(text % Variables.score)
+	get_node("/root/master").sound("res://util/music/効果音ブン.mp3")
 
 
 func retry_game():
+	get_node("/root/master").sound("res://util/music/効果音ブン.mp3")
 	change_scene(Scene.main_game)
 
 
 func go_to_title():
+	get_node("/root/master").sound("res://util/music/効果音ブン.mp3")
 	change_scene(Scene.title)

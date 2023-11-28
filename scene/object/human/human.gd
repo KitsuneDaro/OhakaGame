@@ -23,7 +23,7 @@ static var human_datas: Array = []
 
 # scale up
 var scale_up_first_speed: float = 3.0
-var scale_up_rate: float = 0.1
+var scale_up_rate: float = 0.02
 var origin_scale: Vector2 = scale
 
 # time
@@ -39,6 +39,17 @@ const creating_human_female_rate: float = 0.488
 # merge
 var merging_able_flag: bool = true
 
+static var last_collide_timer: Timer = preset_last_collide_timer()
+
+static func preset_last_collide_timer():
+	var timer: Timer = Timer.new()
+	timer.wait_time = last_collide_timer_wait_time()
+	timer.one_shot = true
+	
+	return timer
+
+static func last_collide_timer_wait_time():
+	return 0.4 + randf() * 0.6
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -190,6 +201,12 @@ func _on_body_entered(body: RigidBody2D):
 		if (human1.get_index() < human2.get_index()
 		and is_merge_able_humans(human1, human2)):
 			merge_humans(human1, human2)
+		elif last_collide_timer.is_stopped():
+			get_node("/root/master").sound("res://util/music/効果音コテッ.mp3")
+			
+			last_collide_timer.wait_time = last_collide_timer_wait_time()
+			last_collide_timer.start()
+
 
 func merge_humans(human1: Human, human2: Human):
 	# 同時に合体を防ぐ
@@ -230,6 +247,8 @@ func _on_collision_between_human(human1: Human, human2: Human):
 	
 	# スコア加点
 	Variables.score += get_score(life_stage)
+	
+	get_node("/root/master").sound("res://util/music/効果音ポコッ.mp3")
 
 
 # 人間のスコアを得る

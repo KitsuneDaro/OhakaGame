@@ -23,12 +23,13 @@ func change_scene(next_scene: PackedScene):
 
 
 func start_game():
+	get_node("/root/master").sound("res://util/music/効果音ブン.mp3")
 	change_scene(Scene.main_game)
 
 
 func explain_game():
-	pass
+	get_node("/root/master").sound("res://util/music/効果音ブブー.mp3")
 
 
 func go_to_option():
-	pass
+	get_node("/root/master").sound("res://util/music/効果音ブブー.mp3")

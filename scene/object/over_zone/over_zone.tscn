@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scene/object/over_zone/over_zone.gd" id="1_32r2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ej00"]
-size = Vector2(560, 60)
+size = Vector2(620, 60)
 
 [node name="over_zone" type="Area2D"]
 script = ExtResource("1_32r2i")

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scene/object/box/box.gd" id="1_xbpav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47o54"]
-size = Vector2(600, 117)
+size = Vector2(828, 117)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpnmo"]
 size = Vector2(180, 465)
@@ -23,14 +23,14 @@ shape = SubResource("RectangleShape2D_47o54")
 position = Vector2(-290, 21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left_wall"]
-position = Vector2(-80, 0)
+position = Vector2(-116, 0)
 shape = SubResource("RectangleShape2D_rpnmo")
 
 [node name="right_wall" type="StaticBody2D" parent="."]
 position = Vector2(290, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right_wall"]
-position = Vector2(80, 0)
+position = Vector2(116, 0)
 shape = SubResource("RectangleShape2D_rpnmo")
 
 [node name="primitive2d" parent="." instance=ExtResource("1_bd0qo")]
@@ -40,6 +40,6 @@ color = Color(0.333333, 0.333333, 0.333333, 0.537255)
 enabled_outline = true
 outline_width = 10.0
 outline_color = Color(0.211765, 0.211765, 0.211765, 1)
-size = Vector2(570, 440)
+size = Vector2(640, 440)
 round_xratio = 0.124
 round_yratio = 0.247
